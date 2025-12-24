@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Advanced Task-3 Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <body>
 
-<header>
-    <h1>Advanced Styling & JavaScript</h1>
-    <p>Responsive Design | Image Carousel | API Data</p>
-</header>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2>Task-3 Project</h2>
+</nav>
+
+<!-- QUIZ SECTION -->
+<section class="quiz">
+    <h2>🧠 JavaScript Quiz</h2>
+    <h3 id="question"></h3>
+    <div id="options"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <p id="score"></p>
+</section>
 
 <!-- IMAGE CAROUSEL -->
 <section class="carousel">
-    <h2>Image Carousel</h2>
+    <h2>🖼 Image Carousel</h2>
     <img id="carouselImage" src="https://picsum.photos/500/300?1">
     <div class="buttons">
         <button onclick="prevImage()">Previous</button>
@@ -26,13 +34,13 @@
 
 <!-- API DATA -->
 <section class="api">
-    <h2>Random Joke (API)</h2>
+    <h2>🌐 Random Joke (API)</h2>
     <p id="joke">Click the button to load a joke</p>
     <button onclick="getJoke()">Get Joke</button>
 </section>
 
 <footer>
-    <p>Task-3 Project | HTML • CSS • JavaScript</p>
+    <p>© 2025 Task-3 | HTML • CSS • JavaScript</p>
 </footer>
 
 <script src="script.js"></script>

@@ -5,12 +5,14 @@ body {
     text-align: center;
 }
 
-header {
-    background: #0a9396;
+/* NAVBAR */
+.navbar {
+    background: #001219;
     color: white;
-    padding: 20px;
+    padding: 15px;
 }
 
+/* SECTIONS */
 section {
     background: white;
     margin: 20px auto;
@@ -19,12 +21,21 @@ section {
     border-radius: 10px;
 }
 
+/* QUIZ */
+#options button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* CAROUSEL */
 .carousel img {
     width: 100%;
     max-width: 500px;
     border-radius: 10px;
 }
 
+/* BUTTON */
 button {
     padding: 10px 15px;
     margin: 10px;
@@ -39,13 +50,14 @@ button:hover {
     background: #001219;
 }
 
+/* FOOTER */
 footer {
     background: #0a9396;
     color: white;
     padding: 10px;
 }
 
-/* 📱 Mobile Responsive */
+/* RESPONSIVE */
 @media (max-width: 600px) {
     section {
         width: 95%;
