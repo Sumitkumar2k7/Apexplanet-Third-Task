@@ -1,82 +1,60 @@
-/* ========== QUIZ SECTION ========== */
-const quizData = [
-    {
-        question: "Which language is used for styling web pages?",
-        options: ["HTML", "CSS", "JavaScript"],
-        answer: "CSS"
-    },
-    {
-        question: "Which keyword is used to create a variable in JavaScript?",
-        options: ["int", "var", "float"],
-        answer: "var"
-    },
-    {
-        question: "Which method is used to fetch API data?",
-        options: ["fetch()", "get()", "pull()"],
-        answer: "fetch()"
-    }
+/* QUIZ */
+const quiz=[
+    {q:"CSS stands for?", o:["Color Sheet","Cascading Style Sheets","Creative Style"], a:"Cascading Style Sheets"},
+    {q:"JavaScript is used for?", o:["Design","Logic","Database"], a:"Logic"},
+    {q:"Which function fetches API?", o:["get()","fetch()","pull()"], a:"fetch()"}
 ];
 
-let current = 0;
-let score = 0;
+let i=0,score=0;
 
-function loadQuiz() {
-    document.getElementById("question").innerText =
-        quizData[current].question;
-
-    const optionsDiv = document.getElementById("options");
-    optionsDiv.innerHTML = "";
-
-    quizData[current].options.forEach(opt => {
-        let btn = document.createElement("button");
-        btn.innerText = opt;
-        btn.onclick = () => {
-            if (opt === quizData[current].answer) {
-                score++;
-            }
-        };
-        optionsDiv.appendChild(btn);
+function loadQuiz(){
+    document.getElementById("question").innerText=quiz[i].q;
+    const opt=document.getElementById("options");
+    opt.innerHTML="";
+    quiz[i].o.forEach(x=>{
+        let b=document.createElement("button");
+        b.innerText=x;
+        b.onclick=()=>{ if(x===quiz[i].a) score++; }
+        opt.appendChild(b);
     });
 }
 
-function nextQuestion() {
-    current++;
-    if (current < quizData.length) {
-        loadQuiz();
-    } else {
-        document.getElementById("score").innerText =
-            "Your Score: " + score + "/" + quizData.length;
-    }
+function nextQuestion(){
+    i++;
+    if(i<quiz.length) loadQuiz();
+    else document.getElementById("result").innerText=
+        `Final Score: ${score}/${quiz.length}`;
 }
 
 loadQuiz();
 
-/* ========== IMAGE CAROUSEL ========== */
-let index = 1;
+/* CAROUSEL */
+const imgs=[
+    "https://picsum.photos/id/1011/600/300",
+    "https://picsum.photos/id/1015/600/300",
+    "https://picsum.photos/id/1025/600/300"
+];
 
-function nextImage() {
-    index++;
-    document.getElementById("carouselImage").src =
-        "https://picsum.photos/500/300?" + index;
+let c=0;
+const img=document.getElementById("img");
+img.src=imgs[0];
+
+function next(){
+    c=(c+1)%imgs.length;
+    img.src=imgs[c];
 }
 
-function prevImage() {
-    index--;
-    if (index < 1) index = 1;
-    document.getElementById("carouselImage").src =
-        "https://picsum.photos/500/300?" + index;
+function prev(){
+    c=(c-1+imgs.length)%imgs.length;
+    img.src=imgs[c];
 }
 
-/* ========== API FETCH ========== */
-function getJoke() {
-    fetch("https://official-joke-api.appspot.com/random_joke")
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("joke").innerHTML =
-                data.setup + "<br><b>" + data.punchline + "</b>";
-        })
-        .catch(() => {
-            document.getElementById("joke").innerText =
-                "Error loading joke!";
-        });
+/* API */
+function getJoke(){
+fetch("https://official-joke-api.appspot.com/random_joke")
+.then(r=>r.json())
+.then(d=>{
+    document.getElementById("joke").innerText=
+    d.setup+" 😂 "+d.punchline;
+});
 }

@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Task-3 Project</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Third Task</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <h2>Task-3 Project</h2>
+    <div class="logo">Apexplanet-Third-Task</div>
 </nav>
 
-<!-- QUIZ SECTION -->
-<section class="quiz">
-    <h2>🧠 JavaScript Quiz</h2>
-    <h3 id="question"></h3>
-    <div id="options"></div>
-    <button onclick="nextQuestion()">Next</button>
-    <p id="score"></p>
-</section>
+<div class="container">
 
-<!-- IMAGE CAROUSEL -->
-<section class="carousel">
-    <h2>🖼 Image Carousel</h2>
-    <img id="carouselImage" src="https://picsum.photos/500/300?1">
-    <div class="buttons">
-        <button onclick="prevImage()">Previous</button>
-        <button onclick="nextImage()">Next</button>
-    </div>
-</section>
+    <!-- QUIZ SECTION -->
+    <section class="card" id="quiz">
+        <h2>🧠 JavaScript Quiz</h2>
+        <h3 id="question"></h3>
+        <div id="options"></div>
+        <button class="btn" onclick="nextQuestion()">Next</button>
+        <p id="result"></p>
+    </section>
 
-<!-- API DATA -->
-<section class="api">
-    <h2>🌐 Random Joke (API)</h2>
-    <p id="joke">Click the button to load a joke</p>
-    <button onclick="getJoke()">Get Joke</button>
-</section>
+    <!-- CAROUSEL SECTION -->
+    <section class="card" id="carousel">
+        <h2>🖼 Image Carousel</h2>
+        <div class="carousel">
+            <button onclick="prev()">❮</button>
+            <img id="img" alt="">
+            <button onclick="next()">❯</button>
+        </div>
+    </section>
 
-<footer>
-    <p>© 2025 Task-3 | HTML • CSS • JavaScript</p>
-</footer>
+    <!-- API SECTION -->
+    <section class="card" id="api">
+        <h2>🌐 API Data Fetch</h2>
+        <p>Click below to fetch live data</p>
+        <button class="btn" onclick="getJoke()">Get Random Joke</button>
+        <p id="joke"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Advanced Frontend Project</p>
+    </footer>
+</div>
 
 <script src="script.js"></script>
 </body>
